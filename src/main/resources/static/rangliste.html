@@ -1,0 +1,94 @@
+<div ng-controller="RanglisteCtrl" id="tabelle" class="container text-center">
+    <div class="row">
+
+        <div class="col-md-12">
+
+            <div class="jumbotron">
+                <h3>SG Rüsselbach Badminton</h3>
+
+                <p>Rangliste</p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-5">
+                </div>
+
+                <div ng-repeat="spieler in reihe(1)">
+                    <div spieler></div>
+                </div>
+
+                <div class="col-md-5">
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-4">
+                </div>
+
+                <div ng-repeat="spieler in reihe(2)">
+                    <div spieler></div>
+                </div>
+
+                <div class="col-md-4">
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-3">
+                </div>
+
+                <div ng-repeat="spieler in reihe(3)">
+                    <div spieler></div>
+                </div>
+
+                <div class="col-md-3">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
+                </div>
+
+                <div ng-repeat="spieler in reihe(4)">
+                    <div spieler></div>
+                </div>
+
+                <div class="col-md-2">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-1">
+                </div>
+                <div ng-repeat="spieler in reihe(5)">
+                    <div spieler></div>
+                </div>
+                <div class="col-md-1">
+                </div>
+            </div>
+
+            <div class="row">
+                <div ng-repeat="spieler in reihe(6)">
+                    <div spieler></div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="col-md-8">
+        <p>
+        <hr/>
+        </p>
+    </div>
+
+    <div class="col-md-12">
+        <p class="text-center">
+            <small>letzte Änderung <span id="letzteAenderung"></span></small>
+        </p>
+    </div>
+
+</div>

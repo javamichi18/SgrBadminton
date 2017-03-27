@@ -1,0 +1,57 @@
+<div class="container">
+    <div id="jumboHeader" class="jumbotron">
+        <h3>Benutzereinstellungen</h3>
+
+        <p> {{ user.name }} </p>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label for="inputName" class="control-label col-md-2">Name</label>
+
+                    <div class="col-md-10">
+                        <p class="form-control-static" id="inputName">Untermann</p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputVorname" class="control-label col-md-2">Vorname</label>
+
+                    <div class="col-md-10">
+                        <p class="form-control-static" id="inputVorname">Michael</p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputEmail" class="control-label col-md-2">Email</label>
+
+                    <div class="col-md-10">
+                        <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword" class="control-label col-md-2">Password</label>
+
+                    <div class="col-md-10">
+                        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <div class="checkbox">
+                            <label><input type="checkbox"> Login merken </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <button type="submit" class="btn btn-primary">Speichern</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

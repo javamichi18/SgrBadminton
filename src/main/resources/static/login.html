@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>SGR Badminton Rangliste - Login</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <meta name="author" content="Michael Untermann">
+    <link rel="icon" href="../../favicon.ico">
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/signin.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #cccccc;
+            color: #cccccc
+        }
+
+        .container img {
+            -webkit-filter: grayscale(90%);
+            width: 100%;
+            margin: auto;
+            z-index: -1;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+
+        .login-btn {
+            color: rgb(255, 255, 255);
+            background-color: rgba(0, 0, 0, 0.7);
+            border-color: rgba(0, 0, 0, 0.22);
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="container">
+    <img src="pic/test.jpg" alt="Wir brauchen noch ein neues Bild" width="1200" height="700">
+
+    <form class="form-signin" action="/sgrbadminton/login" method="POST">
+        <h3 class="form-signin-heading">Bitte anmelden ...</h3>
+        <label for="username" class="sr-only">Email address</label>
+        <input type="text" name="username" id="username" class="form-control" placeholder="Email address"
+               required
+               autofocus>
+        <label for="password" class="sr-only">Password</label>
+        <input type="password" name="password" id="password" class="form-control" placeholder="Password"
+               required>
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+
+        <button class="btn btn-lg btn-block login-btn" type="submit">Login</button>
+    </form>
+</div>
+
+</body>
+</html>

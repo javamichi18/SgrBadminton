@@ -1,0 +1,24 @@
+<div id="{{spieler.rang}}" class="col-md-1 center">
+    <p>
+
+        <span ng-if="istRangAktuellerSpieler(spieler.rang)" ng-bind="spieler.rang" class="label label-success"></span>
+        <span ng-if="!istRangAktuellerSpieler(spieler.rang)" ng-bind="spieler.rang" class="label label-info"></span>
+
+        <br/>
+        <span ng-bind="spieler.name"></span>
+
+        <br/>
+        <span ng-if="kannFordern(spieler.rang)">
+            <a ng-href="#/forderung/{{spieler.id}}">
+                <button type="button" class="btn btn-danger btn-xs">Fordern!</button>
+            </a>
+        </span>
+    </p>
+
+</div>
+
+<div class="col-md-1 center">
+</div>
+
+
+

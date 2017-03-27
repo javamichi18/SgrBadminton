@@ -1,0 +1,53 @@
+<div ng-controller="ForderungenCtrl" id="forderungen" class="container">
+    <div id="jumboHeader" class="jumbotron">
+        <h3>Forderungen aktuell</h3>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-responsive text-center">
+                <table class="table text-center">
+                    <thead>
+                    <tr>
+                        <th class="col-md-3">Spieler1</th>
+                        <th class="col-md-2">-</th>
+                        <th class="col-md-3">Spieler2</th>
+                        <th class="col-md-2 hidden-xs">Erstellt</th>
+                        <th class="col-md-2"></th>
+                    </tr>
+                    </thead>
+                    <tbody id="detailsForderung">
+
+                    <tr ng-repeat="forderung in forderungen">
+                        <td> {{ forderung.spieler1.name }}</td>
+                        <td></td>
+                        <td> {{ forderung.spieler2.name }}</td>
+                        <td class=\"hidden-xs\"> {{ forderung.spiel.datumForderung }}</td>
+                        <td>
+                            <a href="#/ergebnis/{{forderung.id}}">
+                                <button type="button" class="btn btn-primary btn-xs">Ergebnis eintragen</button>
+                            </a>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--
+ $.each(data, function (i, spiel) {
+                    var spieler1 = spiel.spieler1.name;
+                    var spieler2 = spiel.spieler2.name;
+
+                    var spielId = spiel.id;
+
+                    if (spielId) {
+                        var detailsContent = "<tr> <td> " + spieler1 + " </td> <td> </td> <td>" + spieler2 + " </td> <td class=\"hidden-xs\"> " + spiel.datumForderung + "</td>" +
+                                "<td><a href=\"ergebnis.html?spielId=" + spielId + "\"><button type=\"button\" class=\"btn btn-primary btn-xs\">Ergebnis eintragen</button></a></td></tr>";
+                        var details = $(detailsContent);
+                        details.appendTo("#detailsForderung");
+                    }
+                });
+                -->

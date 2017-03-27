@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <style>
+        /* Set black background color, white text and some padding */
+        footer {
+            background-color: #555;
+            color: white;
+            padding: 15px;
+            margin-bottom: 10px;
+        }
+
+        /*center {*/
+        /*margin: auto;*/
+        /*width: 60%;*/
+        /*border: 3px solid #73AD21;*/
+        /*padding: 10px;*/
+        /*}*/
+    </style>
+
+    <script>
+
+        $(document).ready(function () {
+
+
+            $.ajax({
+                url: "/rest/rangliste",
+                dataType: 'json',
+                crossDomain: true,
+//                beforeSend: function () {
+//                    $('.loadingAjax').show();
+//                },
+//                complete: function () {
+//                    $('.loadingAjax').hide();
+//                }
+            }).then(function (data) {
+                var kannFordern = data.kannFordern;
+
+                $.each(data.spieler, function (i, spieler) {
+                    var vorname = spieler.vorname;
+                    var nachname = spieler.nachname;
+                    var rang = spieler.rang;
+                    var id = spieler.id;
+
+                    var content = "<p>";
+                    if (rang <= 3)
+                        content += "<span class=\"label label-success\">" + rang + "</span> <br/>" + vorname + " " + nachname;
+                    else
+                        content += "<span class=\"label label-default\">" + rang + "</span> <br/>" + vorname + " " + nachname;
+
+                    if (kannFordern.indexOf(rang) >= 0) {
+                        content += "<br/> <a href='forderung.html?id=" + id + "'>";
+                        content += "<button type=\"button\" class=\"btn btn-danger btn-xs\">Fordern!</button></a>";
+                    }
+
+                    content += "</p>";
+
+                    var elem = $(content);
+
+                    elem.appendTo("#" + rang);
+                });
+            });
+
+//            $('#navbaar').onePageNav({
+//                currentClass: 'current',
+//                changeHash: false,
+//                scrollSpeed: 750,
+//                scrollThreshold: 0.5,
+//                filter: ':not(.external)',
+//                easing: 'swing',
+//            });
+        });
+    </script>
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Logo</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul id="navbaar" class="nav navbar-nav">
+                <li class="current"><a href="#tabelle"><span class="glyphicon glyphicon-th-list"></span> Tabelle</a>
+                </li>
+                <!--<li><a href="#"><span class="glyphicon glyphicon-fire"></span> Fordern!</a></li>-->
+                <li><a href="#forderungen"><span class="glyphicon glyphicon-eye-open"></span> Gefordert <span
+                        class="badge">2</span> </a></li>
+                <li><a href="#alteSpiele"><span class="glyphicon glyphicon-list-alt"></span> Gespielt</a></li>
+            </ul>
+
+
+            <!--<form class="navbar-form navbar-right" role="search">-->
+            <!--<div class="form-group input-group">-->
+            <!--<input type="text" class="form-control" placeholder="Search..">-->
+            <!--<span class="input-group-btn">-->
+            <!--<button class="btn btn-default" type="button">-->
+            <!--<span class="glyphicon glyphicon-search"></span>-->
+            <!--</button>-->
+            <!--</span>-->
+            <!--</div>-->
+            <!--</form>-->
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Benutzername</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<div id="tabelle" class="container text-center">
+    <div class="row">
+        <!--
+        <div class="col-md-2 well">
+            <div class="well">
+                <p><a href="#">My Profile</a></p>
+                <img src="bird.jpg" class="img-circle" height="65" width="65" alt="Avatar">
+            </div>
+            <div class="well">
+                <p><a href="#">Spiele</a></p>
+                <p>
+                    <span class="label label-success">Forderungen</span>
+                    <span class="label label-danger">verpasste</span>
+                </p>
+            </div>
+            <div class="alert alert-success fade in">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                <p><strong>Ey!</strong></p>
+                People are looking at your profile. Find out who.
+            </div>
+            <p><a href="#">Link</a></p>
+            <p><a href="#">Link</a></p>
+            <p><a href="#">Link</a></p>
+        </div>
+        -->
+        <div class="col-md-22">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default text-center">
+                        <div class="panel-body">
+                            <h4>SG Rüsselbach Badminton</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- eins -->
+            <div class="row">
+
+                <div class="col-md-5">
+                </div>
+
+                <!-- style="background-color:papayawhip; border-radius: 10px;" -->
+                <div id="1" class="col-md-1 center">
+
+                </div>
+
+                <div class="col-md-5">
+                </div>
+            </div>
+
+            <div class="row"> <!-- zwei -->
+
+                <div class="col-md-4">
+                </div>
+
+                <div id="2" class="col-md-1 img-rounded">
+
+                </div>
+
+                <div class="col-md-1">
+                </div>
+
+                <div id="3" class="col-md-1">
+
+                </div>
+
+                <div class="col-md-4">
+                </div>
+            </div>
+
+
+            <div class="row"> <!-- drei -->
+                <div class="col-md-3">
+                </div>
+
+                <div id="4" class="col-md-1">
+
+                </div>
+
+                <div class="col-md-1">
+                </div>
+
+                <div id="5" class="col-md-1">
+
+                </div>
+
+                <div class="col-md-1">
+                </div>
+
+                <div id="6" class="col-md-1">
+
+                </div>
+
+                <div class="col-md-3">
+                </div>
+            </div>
+
+            <div class="row"> <!-- vier -->
+                <div class="col-md-2">
+                </div>
+
+                <div id="7" class="col-md-1">
+                </div>
+
+                <div class="col-md-1">
+                </div>
+
+                <div id="8" class="col-md-1">
+                </div>
+
+                <div class="col-md-1">
+                </div>
+
+                <div id=9 class="col-md-1">
+                </div>
+
+                <div class="col-md-1">
+                </div>
+
+                <div id=10 class="col-md-1">
+                </div>
+
+                <div class="col-md-2">
+                </div>
+            </div>
+
+            <div class="row"> <!-- fuenf -->
+                <div class="col-md-1">
+                </div>
+
+                <div id="11" class="col-md-1">
+                </div>
+
+                <div class="col-md-1">
+                </div>
+
+                <div id="12" class="col-md-1">
+                </div>
+
+                <div class="col-md-1">
+                </div>
+
+                <div id="13" class="col-md-1">
+                </div>
+
+                <div class="col-md-1">
+                </div>
+
+                <div id="14" class="col-md-1">
+                </div>
+
+                <div class="col-md-1">
+                </div>
+
+                <div id="15" class="col-md-1">
+                </div>
+
+                <div class="col-md-1">
+                </div>
+            </div>
+
+            <div class="row"> <!-- sechs -->
+
+                <div id="16" class="col-md-1">
+                </div>
+
+                <div class="col-md-1">
+                </div>
+
+                <div id="17" class="col-md-1">
+                </div>
+
+                <div class="col-md-1">
+                </div>
+
+                <div id="18" class="col-md-1">
+                </div>
+
+                <div class="col-md-1">
+                </div>
+
+                <div id="19" class="col-md-1">
+                </div>
+
+                <div class="col-md-1">
+                </div>
+
+                <div id="20" class="col-md-1">
+                </div>
+
+                <div class="col-md-1">
+                </div>
+
+                <div id="21" class="col-md-1">
+                </div>
+
+                <div class="col-md-2">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="forderungen" class="container">
+    <div id="jumboHeader" class="jumbotron">
+        <h3>Forderungen aktuell</h3>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-responsive text-center">
+                <table class="table text-center">
+                    <thead>
+                    <tr>
+                        <th class="col-sm-4">Spieler1</th>
+                        <th class="col-sm-2">-</th>
+                        <th class="col-sm-4">Spieler2</th>
+                        <th class="hidden-xs">Erstellt</th>
+                    </tr>
+                    </thead>
+                    <tbody id="detailsForderung">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <p class="text-center">
+            weitere inhalte?
+        </p>
+    </div>
+</div>
+
+
+<div id="alteSpiele" class="container">
+    <div id="jumboHeaderSpiele" class="jumbotron">
+        <h3>Spiele erledigt</h3>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-responsive text-center">
+                <table class="table text-center">
+                    <thead>
+                    <tr>
+                        <th class="col-md-4">Spieler1</th>
+                        <th class="col-md-2">-</th>
+                        <th class="col-md-4">Spieler2</th>
+                        <th class="col-md-2">Ergebnis</th>
+                    </tr>
+                    </thead>
+                    <tbody id="detailsErgebnis">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <p class="text-center">
+            weitere inhalte?
+        </p>
+    </div>
+</div>
+
+
+<footer class="container-fluid text-center">
+    <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="oben">
+        <span class="glyphicon glyphicon-chevron-up"></span>
+    </a><br>
+
+    <p>Letzte Änderung am 05.03.2016</p>
+</footer>
+
+
+<script>
+    $(document).ready(function () {
+// Initialize Tooltip
+        $('[data-toggle="tooltip"]').tooltip();
+
+// Add smooth scrolling to all links in navbar + footer link
+        $(".navbar a, footer a[href='#myPage']").on('click', function (event) {
+
+// Prevent default anchor click behavior
+            event.preventDefault();
+
+// Store hash
+            var hash = this.hash;
+
+// Using jQuery's animate() method to add smooth page scroll
+// The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+            $('html, body').animate({
+                scrollTop: $(hash).offset().top
+            }, 900, function () {
+
+// Add hash (#) to URL when done scrolling (default click behavior)
+                window.location.hash = hash;
+            });
+        });
+    })
+</script>
+</body>
+</html>

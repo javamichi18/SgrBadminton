@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configuration status="WARN"> <!-- status="debug" -->
+
+    <Properties>
+        <Property name="log-path">logs</Property>
+    </Properties>
+
+    <Appenders>
+        <RollingFile name="file-log" fileName="${log-path}/badminton.log"
+                     filePattern="${log-path}/badminton-info-%d{yyyy-MM-dd}.log">
+            <PatternLayout>
+                <pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n</pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+        </RollingFile>
+
+        <RollingFile name="error-log" fileName="${log-path}/badminton-error.log"
+                     filePattern="${log-path}/badminton-error-%d{yyyy-MM-dd}.log">
+            <PatternLayout>
+                <pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n</pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+        </RollingFile>
+
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c - %msg%n"/>
+        </Console>
+    </Appenders>
+
+    <Loggers>
+        <Logger name="de.soflimo.sgr" level="debug" additivity="false">
+            <appender-ref ref="error-log" level="error"/>
+            <appender-ref ref="file-log" level="debug"/>
+        </Logger>
+
+        <Logger name="org.springframework.boot.context.web.OrderedRequestContextFilter" level="info"/>
+
+        <Logger name="org.apache.http.wire" level="debug" additivity="false">
+            <appender-ref ref="file-log" level="debug"/>
+        </Logger>
+
+        <Logger name="com.fasterxml.jackson" level="debug" additivity="false">
+            <appender-ref ref="file-log" level="debug"/>
+        </Logger>
+
+        <Logger name="org.springframework.boot" level="debug" additivity="false">
+            <appender-ref ref="file-log" level="debug"/>
+        </Logger>
+
+        <!--
+        <Logger name="org.hibernate.SQL" level="debug" additivity="false">
+            <appender-ref ref="file-log" level="debug"/>
+        </Logger>
+
+        <Logger name="org.springframework.orm" level="debug" additivity="false">
+            <appender-ref ref="file-log" level="debug"/>
+        </Logger>
+        -->
+
+        <Root level="warn" additivity="false">
+            <appender-ref ref="console"/>
+        </Root>
+    </Loggers>
+</Configuration>
