@@ -1,7 +1,5 @@
 0 info it worked if it ends with ok
-1 verbose cli [ 'C:\\Windows\\node.exe',
-1 verbose cli   'C:\\Windows\\node_modules\\npm\\bin\\npm-cli.js',
-1 verbose cli   'start' ]
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'start' ]
 2 info using npm@3.10.10
 3 info using node@v6.10.1
 4 verbose run-script [ 'prestart', 'start', 'poststart' ]
@@ -9,25 +7,25 @@
 6 silly lifecycle badminton@0.0.0~prestart: no script for prestart, continuing
 7 info lifecycle badminton@0.0.0~start: badminton@0.0.0
 8 verbose lifecycle badminton@0.0.0~start: unsafe-perm in lifecycle true
-9 verbose lifecycle badminton@0.0.0~start: PATH: C:\Windows\node_modules\npm\bin\node-gyp-bin;C:\Users\Max\IdeaProjects\SgrBadminton2\client\node_modules\.bin;C:\cygwin\usr\local\bin;C:\cygwin\bin;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Program Files\apache-maven-3.3.9\bin;C:\Workspace\bin;C:\Program Files\Git\cmd;C:\Users\Max\AppData\Local\Microsoft\WindowsApps
-10 verbose lifecycle badminton@0.0.0~start: CWD: C:\Users\Max\IdeaProjects\SgrBadminton2\client
-11 silly lifecycle badminton@0.0.0~start: Args: [ '/d /s /c', 'ng serve' ]
+9 verbose lifecycle badminton@0.0.0~start: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/michaeluntermann/intelliJ/SgrBadminton/client/node_modules/.bin:/opt/local/bin:/opt/local/sbin:/opt/local/bin:/opt/local/sbin:/opt/local/bin:/opt/local/sbin:/opt/local/bin:/opt/local/sbin:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/bin:/Users/michaeluntermann/java/spring.boot/bin:/usr/local/graphicsmagick/bin:/opt/local/bin/:/Users/michaeluntermann/java/gradle/bin:/Users/michaeluntermann/java/grails/bin:/Users/michaeluntermann/java/tomcat/bin:/Users/michaeluntermann/java/maven/bin:/opt/local/lib/postgresql93/bin:/Users/michaeluntermann/java/ant/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/MacGPG2/bin:/Applications/Wireshark.app/Contents/MacOS
+10 verbose lifecycle badminton@0.0.0~start: CWD: /Users/michaeluntermann/intelliJ/SgrBadminton/client
+11 silly lifecycle badminton@0.0.0~start: Args: [ '-c', 'ng serve' ]
 12 silly lifecycle badminton@0.0.0~start: Returned: code: 1  signal: null
 13 info lifecycle badminton@0.0.0~start: Failed to exec start script
 14 verbose stack Error: badminton@0.0.0 start: `ng serve`
 14 verbose stack Exit status 1
-14 verbose stack     at EventEmitter.<anonymous> (C:\Windows\node_modules\npm\lib\utils\lifecycle.js:255:16)
+14 verbose stack     at EventEmitter.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/lifecycle.js:255:16)
 14 verbose stack     at emitTwo (events.js:106:13)
 14 verbose stack     at EventEmitter.emit (events.js:191:7)
-14 verbose stack     at ChildProcess.<anonymous> (C:\Windows\node_modules\npm\lib\utils\spawn.js:40:14)
+14 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/spawn.js:40:14)
 14 verbose stack     at emitTwo (events.js:106:13)
 14 verbose stack     at ChildProcess.emit (events.js:191:7)
 14 verbose stack     at maybeClose (internal/child_process.js:886:16)
 14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
 15 verbose pkgid badminton@0.0.0
-16 verbose cwd C:\Users\Max\IdeaProjects\SgrBadminton2\client
-17 error Windows_NT 10.0.14393
-18 error argv "C:\\Windows\\node.exe" "C:\\Windows\\node_modules\\npm\\bin\\npm-cli.js" "start"
+16 verbose cwd /Users/michaeluntermann/intelliJ/SgrBadminton/client
+17 error Darwin 16.4.0
+18 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "start"
 19 error node v6.10.1
 20 error npm  v3.10.10
 21 error code ELIFECYCLE

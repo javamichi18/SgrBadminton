@@ -5,7 +5,7 @@
   },
   "apps": [
     {
-      "root": "src/main/resources",
+      "root": "src",
       "outDir": "dist",
       "assets": [
         "assets",
@@ -18,7 +18,7 @@
       "tsconfig": "tsconfig.json",
       "prefix": "app",
       "styles": [
-        "./src/main/resources/app/css/bootstrap.min.css"
+        "app/css/bootstrap.min.css"
       ],
       "scripts": [],
       "environments": {
@@ -36,7 +36,7 @@
   "lint": [
     {
       "files": "src/**/*.ts",
-      "project": "src/main/resources/tsconfig.json"
+      "project": "src/tsconfig.json"
     },
     {
       "files": "e2e/**/*.ts",
