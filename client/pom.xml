@@ -4,10 +4,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>de.soflimo</groupId>
-    <artifactId>BadmintonClientV1</artifactId>
+    <artifactId>BadmintonClient</artifactId>
     <packaging>jar</packaging>
 
-    <name>SgrBadminton :: ClientV1</name>
+    <name>SgrBadminton :: Client</name>
     <parent>
         <groupId>de.soflimo</groupId>
         <artifactId>Badminton</artifactId>
