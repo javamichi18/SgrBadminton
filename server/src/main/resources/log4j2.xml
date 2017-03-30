@@ -27,13 +27,11 @@
             </Policies>
         </RollingFile>
 
-        <Console name="console" target="SYSTEM_OUT">
-            <PatternLayout pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c - %msg%n"/>
-        </Console>
+
     </Appenders>
 
     <Loggers>
-        <Logger name="de.soflimo.sgr" level="debug" additivity="false">
+        <Logger name="de.soflimo.sgr" level="error" additivity="false">
             <appender-ref ref="error-log" level="error"/>
             <appender-ref ref="file-log" level="debug"/>
         </Logger>
@@ -52,7 +50,7 @@
             <appender-ref ref="file-log" level="debug"/>
         </Logger>
 
-        <!--
+
         <Logger name="org.hibernate.SQL" level="debug" additivity="false">
             <appender-ref ref="file-log" level="debug"/>
         </Logger>
@@ -60,7 +58,7 @@
         <Logger name="org.springframework.orm" level="debug" additivity="false">
             <appender-ref ref="file-log" level="debug"/>
         </Logger>
-        -->
+
 
         <Root level="warn" additivity="false">
             <appender-ref ref="console"/>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>de.soflimo</groupId>
+    <artifactId>SgrBadminton</artifactId>
+    <packaging>war</packaging>
+
+    <name>SgrBadminton :: DIST</name>
+    <parent>
+        <groupId>de.soflimo</groupId>
+        <artifactId>Badminton</artifactId>
+        <version>0.0.5-SNAPSHOT</version>
+    </parent>
+
+    <dependencies>
+        <dependency>
+            <groupId>de.soflimo</groupId>
+            <artifactId>BadmintonServer</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>de.soflimo</groupId>
+            <artifactId>BadmintonClient</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>sgrbadminton</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.cargo</groupId>
+                <artifactId>cargo-maven2-plugin</artifactId>
+                <version>1.6.2</version>
+
+                <configuration>
+                    <container>
+                        <containerId>tomcat8x</containerId>
+                        <zipUrlInstaller>
+                            <url>http://archive.apache.org/dist/tomcat/tomcat-8/v8.5.12/bin/apache-tomcat-8.5.12.zip
+                            </url>
+                        </zipUrlInstaller>
+                    </container>
+
+                    <configuration>
+                        <properties>
+                            <cargo.servlet.port>11111</cargo.servlet.port>
+                            <cargo.tomcat.ajp.port>18998</cargo.tomcat.ajp.port>
+                            <cargo.logging>medium</cargo.logging>
+                            <cargo.jvmargs>-Dspring.profiles.active=test
+                                -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005
+                            </cargo.jvmargs>
+                        </properties>
+                    </configuration>
+                </configuration>
+            </plugin>
+
+
+        </plugins>
+    </build>
+
+</project>
