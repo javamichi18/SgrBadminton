@@ -6,9 +6,51 @@
 </head>
 <body>
 <ul class="">
-  <li *ngFor="let Spieler of getSpieler()">
-    <span class="badge">{{Spieler.vorname}} {{Spieler.nachname}}</span>
-  </li>
+  <div *ngFor="let Spieler of getSpielerArray()">
+      <div class="row">
+          <div class="col-md-5">
+              <div ng-repeat="getSpielerproReihe(i)" class="ng-scope">
+                  <div class="col-md-1 center">
+                      <span class="badge">{{Spieler.vorname}} {{Spieler.nachname}}</span>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
 </ul>
+
+
+
 </body>
-</html>
+<!--<div class="row">
+    <div class="col-md-5">
+    </div>
+
+    &lt;!&ndash; ngRepeat: spieler in reihe(1) &ndash;&gt;<div ng-repeat="getSpielerproReihe(1)" class="ng-scope">
+    <div spieler=""><div id="1" class="col-md-1 center">
+        <p>
+
+            &lt;!&ndash; ngIf: istRangAktuellerSpieler(spieler.rang) &ndash;&gt;
+            &lt;!&ndash; ngIf: !istRangAktuellerSpieler(spieler.rang) &ndash;&gt;
+            <span *ngIf="Spieler !== globals.getLoggedIn()" [(ngModel)]="Spieler.rang" class="label label-info ng-binding ng-scope"></span>&lt;!&ndash; end ngIf: !istRangAktuellerSpieler(spieler.rang) &ndash;&gt;
+
+            <br>
+            <span *ngIf="Spieler === globals.getLoggedIn()"[(ngModel)]="Spieler.rang" class="ng-binding">{{Spieler.vorname}} {{Spieler.nachname}}</span>
+
+            <br>
+            &lt;!&ndash; ngIf: kannFordern(spieler.rang) &ndash;&gt;
+        </p>
+
+    </div>
+
+        <div class="col-md-1 center">
+        </div>
+
+
+
+    </div>
+</div>&lt;!&ndash; end ngRepeat: spieler in reihe(1) &ndash;&gt;
+
+    <div class="col-md-5">
+    </div>
+</div>-->

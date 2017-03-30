@@ -12,9 +12,11 @@ export class LoginTry {
 @Component({
   selector: 'app-login-component',
   template: `
-    <div>Email : <input class="input-group-sm" type="text" [(ngModel)]="loginTry.loginname" placeholder="Email-Adresse"></div>
-    <div>Passwort : <input class="form-control" type="password" [(ngModel)]="loginTry.passwort" placeholder="Passwort"></div>
-    <button class="btn btn-lg btn-block login-btn" (click)="Redirect()">Login</button>    `
+      <h3 class="form-signin-heading">Bitte anmelden ...</h3>
+      <input class="form-control" type="text" [(ngModel)]="loginTry.loginname" placeholder="Email-Adresse">
+      <input class="form-control" type="password" [(ngModel)]="loginTry.passwort" placeholder="Passwort">
+      <button class="btn btn-lg btn-block login-btn" (click)="Redirect()">Login</button>
+  `
 })
 
 export class LoginComponent {

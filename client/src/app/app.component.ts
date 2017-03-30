@@ -4,10 +4,10 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   template: `
     <h3>{{title}}</h3>
-    <p>SG Rüsselbach</p>
+    <p>Badminton</p>
     <router-outlet></router-outlet>
   `
 })
 export class AppComponent {
-  title = 'Badminton';
+  title = 'SG Rüsselbach';
 }

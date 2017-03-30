@@ -9,22 +9,30 @@ import { Globals } from './globals';
 
 
 let spielerzaehler = -1;
-let zeiger = spielerzaehler;
+
 @Component({
   selector: 'app-ranking',
   templateUrl: './ranking.component.html'
 })
+
 export class RankingComponent {
+  i: number;
   globals: Globals;
-  protected getSpieler(): Spieler[] {
+  spielerInDerReihe: number;
+  reihe: number;
+  getSpielerArray(): Spieler[] {
     return SPIELER;
   }
+  getSpieler(index: number): Spieler {
+    return this.getSpielerArray()[index];
+  }
+
   getSpielerproReihe(ReihenNr: number): number {
     let SpielerAnzahl = 0;
     do {
       SpielerAnzahl++;
     }
-    while (isNullOrUndefined(this.getSpieler()[SpielerAnzahl]));
+    while (isNullOrUndefined(this.getSpielerArray()[SpielerAnzahl]));
     let i = 1;
     do {
       if (SpielerAnzahl >= i) {
@@ -36,14 +44,8 @@ export class RankingComponent {
     } while (i <= ReihenNr);
     return SpielerAnzahl;
   }
-  getNeuenSpieler(): number {
-    spielerzaehler = spielerzaehler + 1;
-    zeiger = spielerzaehler;
-    return spielerzaehler;
-  }
-  getAktuellenSpieler(): number {
-    return zeiger;
-  }
+
+
   getReihe(rang: number): number {
     let row = 1;
     let countGesamt = row;
@@ -55,6 +57,7 @@ export class RankingComponent {
     }
     return row;
   }
+
   kannFordern(rang: number): boolean {
     if (this.globals.getLoggedIn().rang < rang && this.globals.getLoggedIn().rang <= 5 ) {
       return true;
@@ -69,7 +72,12 @@ export class RankingComponent {
       }
     }
   }
+
   constructor (global: Globals) {
   this.globals = global;
+  this.globals.setLoggedIn(this.getSpieler(5));
+  this.reihe = 1;
+  this.spielerInDerReihe = 0;
+  this.i = 1;
   }
 }

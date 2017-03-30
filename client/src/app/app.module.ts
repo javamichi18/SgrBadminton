@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './login.component';
 import { RankingComponent } from './ranking.component';
 import { CheckLoginService } from './check-login.service';
+import { Globals } from './globals';
 
 
 @NgModule({
@@ -23,7 +24,7 @@ import { CheckLoginService } from './check-login.service';
     AppRoutingModule
   ],
   providers: [
-    CheckLoginService
+    CheckLoginService, Globals
   ],
   bootstrap: [ AppComponent ]
 })
