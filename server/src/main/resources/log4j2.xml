@@ -27,7 +27,9 @@
             </Policies>
         </RollingFile>
 
-
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c - %msg%n"/>
+        </Console>
     </Appenders>
 
     <Loggers>
@@ -50,7 +52,6 @@
             <appender-ref ref="file-log" level="debug"/>
         </Logger>
 
-
         <Logger name="org.hibernate.SQL" level="debug" additivity="false">
             <appender-ref ref="file-log" level="debug"/>
         </Logger>
@@ -58,7 +59,6 @@
         <Logger name="org.springframework.orm" level="debug" additivity="false">
             <appender-ref ref="file-log" level="debug"/>
         </Logger>
-
 
         <Root level="warn" additivity="false">
             <appender-ref ref="console"/>

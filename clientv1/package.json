@@ -5,13 +5,13 @@
   ],
   "description": "",
   "main": "src/main/resources/static/index.html",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "keywords": [
     "sgr",
     "badminton"
   ],
   "license": "MIT",
-  "homepage": "build.soflimo.de/sgrbadminton",
+  "homepage": "sgrbadminton",
   "private": true,
   "ignore": [
     "**/.*",

@@ -1,11 +1,12 @@
 package de.soflimo.sgr.web;
 
-import de.soflimo.sgr.SgrBadmintonApplication;
+import static org.junit.Assert.assertEquals;
 
 import java.util.concurrent.TimeUnit;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.JavascriptExecutor;
@@ -17,12 +18,13 @@ import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.boot.test.WebIntegrationTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import static org.junit.Assert.assertEquals;
+import de.soflimo.sgr.SgrBadmintonApplication;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = SgrBadmintonApplication.class)
 //@WebIntegrationTest(randomPort = true)
 @WebIntegrationTest({ "server.port:9000", "management.port=0" })
+@Ignore
 public class ServerWebTests {
 
     private static final String TEST_USER = "michi@klingtlogisch.de";
