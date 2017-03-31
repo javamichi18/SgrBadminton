@@ -13,19 +13,22 @@ import { Globals } from './globals';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LoginComponent,
-    RankingComponent
+      AppComponent,
+      LoginComponent,
+      RankingComponent
   ],
   imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule,
-    AppRoutingModule
+      BrowserModule,
+      FormsModule,
+      HttpModule,
+      AppRoutingModule
   ],
   providers: [
-    CheckLoginService, Globals
+      CheckLoginService,
+      Globals
   ],
-  bootstrap: [ AppComponent ]
+  bootstrap: [
+      AppComponent
+  ]
 })
 export class AppModule { }

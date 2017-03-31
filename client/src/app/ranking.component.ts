@@ -1,7 +1,7 @@
 /**
  * Created by Max on 29.03.2017.
  */
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { SPIELER } from './mock-spieler';
 import { Spieler } from './spieler';
 import { isNullOrUndefined} from 'util';
@@ -24,15 +24,14 @@ export class RankingComponent {
   }
 
   public getSpielerderReihe(reihenNr: number): Spieler[] {
-    let m = 0;
     function Summe(y: number): number {
-        if (y>0) {
+        if (y > 0) {
             return (y > 1 ? y + Summe(y - 1) : 1);
         } else {
             return 0;
         }
     }
-    m = Summe(reihenNr - 1);
+    let m = Summe(reihenNr - 1);
     let o = 0;
     let output: Spieler [] = [
         new Spieler(),

@@ -3,7 +3,7 @@
  */
 import { Spieler } from './spieler';
 export class Globals {
-  private loggedIn: Spieler;
+  private loggedIn: Spieler = new Spieler();
   public setLoggedIn( login: Spieler ): void {
     this.loggedIn = login;
   }
