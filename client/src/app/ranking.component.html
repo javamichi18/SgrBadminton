@@ -1,56 +1,145 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<ul class="">
-  <div *ngFor="let Spieler of getSpielerArray()">
-      <div class="row">
-          <div class="col-md-5">
-              <div ng-repeat="getSpielerproReihe(i)" class="ng-scope">
-                  <div class="col-md-1 center">
-                      <span class="badge">{{Spieler.vorname}} {{Spieler.nachname}}</span>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-</ul>
+
+        <div id="tabelle" class="container text-center">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="jumbotron">
+                        <h3>SG Rüsselbach Badminton</h3>
+
+                        <p>Rangliste</p>
+                    </div>
+
+                    <!-- Reihe 1 -->
+                    <div class="row">
+                        <div class="col-md-5"></div>
+                        <div *ngFor="let Spieler of getSpielerderReihe(1)">
+                            <div spieler>
+                                <div class="col-md-1 center">
+                                    <p>
+                                        <span *ngIf="!istAngemeldet(Spieler)" class="label label-info ng-binding">{{Spieler.rang}}</span>
+                                        <br>
+                                        <span class="ng-binding">{{Spieler.vorname}} {{Spieler.nachname}}</span>
+                                        <br>
+                                        <span *ngIf="kannFordern(Spieler.rang)">
+                                            <button *ngIf="kannFordern(Spieler.rang)" type="button" class="btn btn-danger btn-xs">Fordern!</button>
+                                        </span>
+                                    </p>
+                                </div>
+                                <div class="col-md-1 center"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-5"></div>
+                    </div>
+
+                    <!-- Reihe 2 -->
+                    <div class="row">
+                        <div class="col-md-4"></div>
+                        <div *ngFor="let Spieler of getSpielerderReihe(2)">
+                            <div spieler="">
+                                <div class="col-md-1 center">
+                                    <p>
+                                        <span *ngIf="!istAngemeldet(Spieler)" class="label label-info ng-binding">{{Spieler.rang}}</span>
+                                        <br>
+                                        <span class="ng-binding">{{Spieler.vorname}} {{Spieler.nachname}}</span>
+                                        <br>
+                                        <span *ngIf="kannFordern(Spieler.rang)">
+                                            <button *ngIf="kannFordern(Spieler.rang)" type="button" class="btn btn-danger btn-xs">Fordern!</button>
+                                        </span>
+                                    </p>
+                                </div>
+                                <div class="col-md-1 center"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-4"></div>
+                    </div>
+
+                    <!-- Reihe 3 -->
+                    <div class="row">
+                        <div class="col-md-3"></div>
+                        <div *ngFor="let Spieler of getSpielerderReihe(3)" class="ng-scope">
+                            <div spieler="">
+                                <div class="col-md-1 center">
+                                    <p>
+                                        <span *ngIf="!istAngemeldet(Spieler)" class="label label-info ng-binding ng-scope">{{Spieler.rang}}</span>
+                                        <br>
+                                        <span class="ng-binding">{{Spieler.vorname}} {{Spieler.nachname}}</span>
+                                        <br>
+                                        <span *ngIf="kannFordern(Spieler.rang)" class="ng-scope">
+                                            <button *ngIf="kannFordern(Spieler.rang)" type="button" class="btn btn-danger btn-xs">Fordern!</button>
+                                        </span>
+                                    </p>
+                                </div>
+                                <div class="col-md-1 center"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-3"></div>
+                    </div>
+
+                    <!-- Reihe 4 -->
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div *ngFor="let Spieler of getSpielerderReihe(4)" class="ng-scope">
+                            <div spieler="">
+                                <div class="col-md-1 center">
+                                    <p>
+                                        <span *ngIf="!istAngemeldet(Spieler)" class="label label-info ng-binding ng-scope">{{Spieler.rang}}</span>
+                                        <br>
+                                        <span class="ng-binding">{{Spieler.vorname}} {{Spieler.nachname}}</span>
+                                        <br>
+                                        <span *ngIf="kannFordern(Spieler.rang)" class="ng-scope">
+                                            <button *ngIf="kannFordern(Spieler.rang)" type="button" class="btn btn-danger btn-xs">Fordern!</button>
+                                        </span>
+                                    </p>
+                                </div>
+                                <div class="col-md-1 center"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-2"></div>
+                    </div>
+
+                    <!-- Reihe 5 -->
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div *ngFor="let Spieler of getSpielerderReihe(5)" class="ng-scope">
+                            <div spieler="">
+                                <div class="col-md-1 center">
+                                    <p>
+                                        <span *ngIf="!istAngemeldet(Spieler)" class="label label-info ng-binding ng-scope">{{Spieler.rang}}</span>
+                                        <br>
+                                        <span class="ng-binding">{{Spieler.vorname}} {{Spieler.nachname}}</span>
+                                        <br>
+                                        <span *ngIf="kannFordern(Spieler.rang)" class="ng-scope">
+                                        <button *ngIf="kannFordern(Spieler.rang)" type="button" class="btn btn-danger btn-xs">Fordern!</button>
+                                    </span>
+                                    </p>
+                                </div>
+                                <div class="col-md-1 center"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-1"></div>
+                    </div>
+
+                    <!-- Reihe 6 -->
+                    <div class="row">
+                        <div ></div>
+                        <div *ngFor="let Spieler of getSpielerderReihe(6)" class="ng-scope">
+                            <div spieler="">
+                                <div class="col-md-1 center">
+                                    <p>
+                                        <span *ngIf="!istAngemeldet(Spieler)" class="label label-info ng-binding ng-scope">{{Spieler.rang}}</span>
+                                        <br>
+                                        <span class="ng-binding">{{Spieler.vorname}} {{Spieler.nachname}}</span>
+                                        <br>
+                                        <span *ngIf="kannFordern(Spieler.rang)" class="ng-scope">
+                                        <button *ngIf="kannFordern(Spieler.rang)" type="button" class="btn btn-danger btn-xs">Fordern!</button>
+                                    </span>
+                                    </p>
+                                </div>
+                                <div class="col-md-1 center"></div>
+                            </div>
+                        </div>
+                    </div>
 
 
-
-</body>
-<!--<div class="row">
-    <div class="col-md-5">
-    </div>
-
-    &lt;!&ndash; ngRepeat: spieler in reihe(1) &ndash;&gt;<div ng-repeat="getSpielerproReihe(1)" class="ng-scope">
-    <div spieler=""><div id="1" class="col-md-1 center">
-        <p>
-
-            &lt;!&ndash; ngIf: istRangAktuellerSpieler(spieler.rang) &ndash;&gt;
-            &lt;!&ndash; ngIf: !istRangAktuellerSpieler(spieler.rang) &ndash;&gt;
-            <span *ngIf="Spieler !== globals.getLoggedIn()" [(ngModel)]="Spieler.rang" class="label label-info ng-binding ng-scope"></span>&lt;!&ndash; end ngIf: !istRangAktuellerSpieler(spieler.rang) &ndash;&gt;
-
-            <br>
-            <span *ngIf="Spieler === globals.getLoggedIn()"[(ngModel)]="Spieler.rang" class="ng-binding">{{Spieler.vorname}} {{Spieler.nachname}}</span>
-
-            <br>
-            &lt;!&ndash; ngIf: kannFordern(spieler.rang) &ndash;&gt;
-        </p>
-
-    </div>
-
-        <div class="col-md-1 center">
+                </div>
+            </div>
         </div>
-
-
-
-    </div>
-</div>&lt;!&ndash; end ngRepeat: spieler in reihe(1) &ndash;&gt;
-
-    <div class="col-md-5">
-    </div>
-</div>-->
