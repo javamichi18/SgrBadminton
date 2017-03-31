@@ -50,8 +50,8 @@ export class RankingComponent {
     return output;
   }
 
-  public istAngemeldet(spielerNr: number): boolean {
-    if (this.getSpieler(spielerNr) === this.globals.getLoggedIn()) {
+  public istAngemeldet(spieler: Spieler): boolean {
+    if (spieler === this.globals.getLoggedIn()) {
       return true;
     } else {
       return false;
@@ -94,6 +94,5 @@ export class RankingComponent {
 
   constructor (global: Globals) {
   this.globals = global;
-  this.globals.setLoggedIn(this.getSpieler(15));
   }
 }

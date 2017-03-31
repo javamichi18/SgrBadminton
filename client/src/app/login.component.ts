@@ -1,4 +1,3 @@
-///<reference path="../../node_modules/rxjs/operator/window.d.ts"/>
 /**
  * Created by Max on 28.03.2017.
  */
