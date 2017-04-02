@@ -11,6 +11,7 @@ import { CheckLoginService } from './check-login.service';
 import { Globals } from './globals';
 import { AdminComponent } from './admin/admin.component';
 import { SpielerDetailComponent } from './admin/spieler-detail/spieler-detail.component';
+import {AuthGuard} from "./admin/auth-guard.service";
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { SpielerDetailComponent } from './admin/spieler-detail/spieler-detail.co
   ],
   providers: [
       CheckLoginService,
-      Globals
+      Globals,
+      AuthGuard
   ],
   bootstrap: [
       AppComponent

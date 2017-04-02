@@ -6,7 +6,6 @@ import {Spieler} from "../spieler";
 @Component({
     selector: 'app-admin',
     templateUrl: './admin.component.html',
-    styleUrls: ['./admin.component.css'],
     providers: [SpielerService]
 })
 export class AdminComponent implements OnInit {

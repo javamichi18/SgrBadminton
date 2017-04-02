@@ -1,13 +1,12 @@
 import "rxjs/add/operator/switchMap";
 import {Component, OnInit} from "@angular/core";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Params} from "@angular/router";
 import {SpielerService} from "../spieler.service";
 import {Spieler} from "../../spieler";
 
 @Component({
     selector: 'app-spieler-detail',
     templateUrl: './spieler-detail.component.html',
-    styleUrls: ['./spieler-detail.component.css'],
     providers: [SpielerService]
 })
 export class SpielerDetailComponent implements OnInit {
@@ -20,9 +19,9 @@ export class SpielerDetailComponent implements OnInit {
 
     ngOnInit() {
         this.spieler = this._spielerService.getSpielerDetailsPlain(1);
-        // this.route.params
-        //     .switchMap((params: Params) => this.spielerService.getSpielerDetails(+params['id']))
-        //     .subscribe(spieler => this.spieler = spieler);
+        this.route.params;
+            //.switchMap((params: Params) => this.spielerService.getSpielerDetailsPlain(+params['id']))
+            //.subscribe(spieler => this.spieler = spieler);
     }
 
     /*

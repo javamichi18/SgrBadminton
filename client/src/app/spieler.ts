@@ -8,4 +8,5 @@ export class Spieler {
     email: string;
     rang: number;
     id: number;
+    admin: boolean;
 }
