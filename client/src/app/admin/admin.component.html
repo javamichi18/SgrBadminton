@@ -1,0 +1,13 @@
+<p>
+    admin works! {{title}}
+</p>
+<ul>
+
+    <div *ngFor="let spieler of getSpieler()">
+        <li>{{spieler.vorname}} {{spieler.nachname}}
+            <a [routerLink]="['/admin/detail', spieler.id]"> View Details </a>
+            <!--&lt;!&ndash;<button (click)="gotoDetail({{spieler.id}})">View Details</button> &ndash;&gt;-->
+        </li>
+    </div>
+</ul>
+

@@ -3,9 +3,9 @@
  */
 
 export class Spieler {
-  vorname: string;
-  nachname: string;
-  email: string;
-  rang: number;
-  id: number;
+    vorname: string;
+    nachname: string;
+    email: string;
+    rang: number;
+    id: number;
 }

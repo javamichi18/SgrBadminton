@@ -9,13 +9,17 @@ import { LoginComponent } from './login.component';
 import { RankingComponent } from './ranking.component';
 import { CheckLoginService } from './check-login.service';
 import { Globals } from './globals';
+import { AdminComponent } from './admin/admin.component';
+import { SpielerDetailComponent } from './admin/spieler-detail/spieler-detail.component';
 
 
 @NgModule({
   declarations: [
-      AppComponent,
-      LoginComponent,
-      RankingComponent
+    AppComponent,
+    LoginComponent,
+    RankingComponent,
+    AdminComponent,
+    SpielerDetailComponent
   ],
   imports: [
       BrowserModule,

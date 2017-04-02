@@ -1,0 +1,51 @@
+<div class="container">
+    <div id="jumboHeader" class="jumbotron">
+        <h3>Benutzereinstellungen</h3>
+
+        <p> {{ spieler.vorname }} {{ spieler.nachname}} </p>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label for="inputName" class="control-label col-md-2">Name</label>
+
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" id="inputName" placeholder="rang" value="{{spieler.nachname}}">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputVorname" class="control-label col-md-2">Vorname</label>
+
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" id="inputVorname" placeholder="rang" value="{{spieler.vorname}}">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputEmail" class="control-label col-md-2">Email</label>
+
+                    <div class="col-md-10">
+                        <input type="email" class="form-control" id="inputEmail" placeholder="email" value="{{spieler.email}}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputrang" class="control-label col-md-2">Rang</label>
+
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" id="inputrang" placeholder="rang" value="{{spieler.rang}}">
+                    </div>
+                </div>
+               
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <button type="submit" class="btn btn-primary">Speichern</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
