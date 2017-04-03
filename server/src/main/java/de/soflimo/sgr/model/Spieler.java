@@ -30,7 +30,6 @@ public class Spieler {
 
     private String nachname;
 
-    @JsonIgnore
     private String email;
 
     @JsonIgnore

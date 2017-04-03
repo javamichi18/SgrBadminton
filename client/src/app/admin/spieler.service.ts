@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {Spieler} from "../spieler";
-import {SPIELER} from "../mock-spieler";
+/*import { SpielerService } from "../mock-spieler";*/
 
 
 @Injectable()
@@ -10,14 +10,17 @@ export class SpielerService {
         return 'Hi from my-service.service.ts'
     }
 
-    public  getSpielerPlain(): Spieler[] {
-
-        return SPIELER;
+    public getSpielerPlain(): Spieler[] {
+        let spieler: Spieler[] = [];
+        /*this.spielerservice.Spielerholen().subscribe(
+            sp => spieler = sp
+        );*/
+        return null;
     }
 
     public  getSpieler(): Promise<Spieler[]> {
 
-        return Promise.resolve(SPIELER);
+        return Promise.resolve(this.getSpielerPlain());
     }
 
     public getSpielerDetails(id: number): Promise<Spieler> {
@@ -31,7 +34,7 @@ export class SpielerService {
         return this.getSpielerPlain().find(s => s.id === id);
     }
 
-    constructor() {
+    constructor(/*private spielerservice: SpielerService*/) {
     }
 
 }
