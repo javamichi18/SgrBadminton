@@ -5,26 +5,32 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Spieler } from './spieler';
-import { SPIELER } from './mock-spieler';
+import { SpielerService } from './mock-spieler';
 import { LoginTry } from './login.component';
 import { isNullOrUndefined } from 'util';
 import { Globals } from './globals';
 
 @Injectable()
 export class CheckLoginService {
-  getSpieler(): Spieler[] {
-    return SPIELER;
-  }
-  getRedirect(login: LoginTry): void {
-    if (isNullOrUndefined(this.getSpieler().find(spieler => spieler.email === login.loginname && spieler.email === login.passwort)
-      )) {
-      this.router.navigate(['/']);
-    } else {
-      this.globals.setLoggedIn(this.getSpieler().find(spieler => spieler.email === login.loginname && spieler.email === login.passwort));
-      this.router.navigate(['/ranking']);
+    sp: Spieler[];
+    errorMessage: string;
+    getSpielerArray(): Spieler[] {
+        this.spielerservice.Spielerholen().subscribe(sp => this.sp = sp,
+            error =>  this.errorMessage = <any>error);
+        self.window.console.log(this.sp);
+        return this.sp;
     }
-  }
-  constructor ( private router: Router,
-    private globals: Globals) {
+    getRedirect(login: LoginTry): void {
+        if (isNullOrUndefined(this.getSpielerArray().find(spieler => spieler.email === login.loginname && spieler.email === login.passwort)
+        )) {
+            this.router.navigate(['/']);
+        } else {
+            this.globals.setLoggedIn(this.getSpielerArray().find(spieler => spieler.email === login.loginname && spieler.email === login.passwort));
+        this.router.navigate(['/ranking']);
+        }
+    }
+    constructor ( private router: Router,
+        private globals: Globals,
+        private spielerservice: SpielerService) {
   }
 }
