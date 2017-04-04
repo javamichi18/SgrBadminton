@@ -18,7 +18,12 @@ export class SpielerDetailComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.spieler = this._spielerService.getSpielerDetailsPlain(1);
+
+        let test : Spieler;
+        this._spielerService.getSpielerDetails(1)
+            .then(val => test = val);
+        self.console.log("XX "+test);
+        this.spieler = test;
         this.route.params;
             //.switchMap((params: Params) => this.spielerService.getSpielerDetailsPlain(+params['id']))
             //.subscribe(spieler => this.spieler = spieler);

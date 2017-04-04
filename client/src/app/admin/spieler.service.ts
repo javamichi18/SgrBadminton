@@ -25,8 +25,11 @@ export class SpielerService {
 
     public getSpielerDetails(id: number): Promise<Spieler> {
 
-        return this.getSpieler()
-            .then(spieler => spieler.find(s => s.id === id));
+        let s = this.getSpielerPlain()[0]; //find(s => s.id === id);
+        return Promise.resolve(s);
+
+        // return this.getSpieler()
+        //     .then(spieler => );
     }
 
     public getSpielerDetailsPlain(id: number): Spieler {

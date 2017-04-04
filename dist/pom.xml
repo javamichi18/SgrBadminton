@@ -23,7 +23,7 @@
 
         <dependency>
             <groupId>de.soflimo</groupId>
-            <artifactId>BadmintonClientV1</artifactId>
+            <artifactId>BadmintonClient</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>

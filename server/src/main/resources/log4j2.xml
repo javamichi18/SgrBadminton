@@ -64,6 +64,10 @@
             <appender-ref ref="file-log" level="debug"/>
         </Logger>
 
+        <Logger name="org.springframework.web" level="trace" additivity="false">
+                    <appender-ref ref="file-log" level="trace"/>
+                </Logger>
+
         <Root level="warn" additivity="false">
             <appender-ref ref="console"/>
         </Root>

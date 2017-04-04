@@ -13,7 +13,7 @@
 
     <modules>
         <module>clientv1</module>
-        <!--<module>client</module>-->
+        <module>client</module>
         <module>server</module>
         <module>dist</module>
     </modules>

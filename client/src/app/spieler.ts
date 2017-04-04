@@ -5,6 +5,7 @@
 export class Spieler {
     vorname: string;
     nachname: string;
+    name: string;
     email: string;
     rang: number;
     id: number;
