@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule, Http} from '@angular/http';
+import { HttpModule } from '@angular/http';
+import {RouterModule, Routes} from "@angular/router";
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -28,7 +29,8 @@ import {SpielerService} from "./spieler.service";
       BrowserModule,
       FormsModule,
       HttpModule,
-      AppRoutingModule
+      AppRoutingModule,
+      RouterModule,
   ],
   providers: [
       CheckLoginService,

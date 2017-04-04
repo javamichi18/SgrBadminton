@@ -1,25 +1,35 @@
 /**
  * Created by Max on 29.03.2017.
  */
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SpielerService } from './spieler.service';
 import { Spieler } from './spieler';
 import { isNullOrUndefined} from 'util';
 import { Globals } from './globals';
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-ranking',
-  templateUrl: './ranking.component.html'
+  template:`
+    <ul>
+        <li *ngFor="let spieler of values | async">{{spieler.vorname}}</li>
+    </ul>
+  `,
+    providers: [ SpielerService ]
+    //templateUrl: './ranking.component.html'
 })
 
-export class RankingComponent {
+export class RankingComponent implements OnInit {
+    private values: Observable<Spieler[]>;
 
+    ngOnInit() {
+        this.getSpieler(0);
+    }
+    public getSpieler(index: number): void {
+        this.values =this.spielerservice.obsSpielerholen()
+    }
 
-  public getSpieler(index: number): Spieler {
-    return this.spielerservice.Spielerholen()[index];
-  }
-
-  public getSpielerderReihe(reihenNr: number): Spieler[] {
+/*  public getSpielerderReihe(reihenNr: number): any {//Spieler[] {
     function Summe(y: number): number {
         if (y > 0) {
             return (y > 1 ? y + Summe(y - 1) : 1);
@@ -29,7 +39,7 @@ export class RankingComponent {
     }
     let m = Summe(reihenNr - 1);
     let o = 0;
-    let output: Spieler [] = [
+    /!*let output: Observable<Spieler[]> = [
         new Spieler(),
     ];
     for (m; m < Summe(reihenNr); m++) {
@@ -38,7 +48,7 @@ export class RankingComponent {
             o++;
         }
     }
-    return output;
+    return output;*!/
   }
 
   public istAngemeldet(spieler: Spieler): boolean {
@@ -52,9 +62,9 @@ export class RankingComponent {
   public getIndex(spieler: Spieler): number {
       let n = 0;
       for (n; n < 20; n++) {
-          if (this.getSpieler(n) === spieler) {
+          /!*if (this.getSpieler(n) === spieler) {
               return n;
-          }
+          }*!/
       }
       return null;
   }
@@ -81,7 +91,7 @@ export class RankingComponent {
               return false;
           }
       }
-  }
+  }*/
 
   constructor (private globals: Globals,
     private spielerservice: SpielerService) {
