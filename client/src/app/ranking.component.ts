@@ -2,7 +2,7 @@
  * Created by Max on 29.03.2017.
  */
 import { Component } from '@angular/core';
-import { SpielerService, /*SpListe*/ } from './mock-spieler';
+import { SpielerService } from './spieler.service';
 import { Spieler } from './spieler';
 import { isNullOrUndefined} from 'util';
 import { Globals } from './globals';
@@ -14,18 +14,9 @@ import { Globals } from './globals';
 
 export class RankingComponent {
 
-  errorMessage: string;
-
-  getSpielerArray(): Spieler[] {
-      let spieler: Spieler[] = [];
-      this.spielerservice.Spielerholen().subscribe(
-          sp => spieler = sp
-      );
-      return spieler;
-  }
 
   public getSpieler(index: number): Spieler {
-    return this.getSpielerArray()[index];
+    return this.spielerservice.Spielerholen()[index];
   }
 
   public getSpielerderReihe(reihenNr: number): Spieler[] {
@@ -46,10 +37,6 @@ export class RankingComponent {
             output[o] = this.getSpieler(m);
             o++;
         }
-    }
-      self.console.log(reihenNr);
-    for (let b=0; b < output.length; b++) {
-        self.console.log(output[b].vorname);
     }
     return output;
   }

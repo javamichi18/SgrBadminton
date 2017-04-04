@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Spieler } from './spieler';
-import { SpielerService } from './mock-spieler';
+import { SpielerService } from './spieler.service';
 import { LoginTry } from './login.component';
 import { isNullOrUndefined } from 'util';
 import { Globals } from './globals';
@@ -14,18 +14,12 @@ import { Globals } from './globals';
 export class CheckLoginService {
     sp: Spieler[];
     errorMessage: string;
-    getSpielerArray(): Spieler[] {
-        this.spielerservice.Spielerholen().subscribe(sp => this.sp = sp,
-            error =>  this.errorMessage = <any>error);
-        self.window.console.log(this.sp);
-        return this.sp;
-    }
     getRedirect(login: LoginTry): void {
-        if (isNullOrUndefined(this.getSpielerArray().find(spieler => spieler.email === login.loginname && spieler.email === login.passwort)
+        if (isNullOrUndefined(this.spielerservice.Spielerholen().find(spieler => spieler.email === login.loginname && spieler.email === login.passwort)
         )) {
             this.router.navigate(['/']);
         } else {
-            this.globals.setLoggedIn(this.getSpielerArray().find(spieler => spieler.email === login.loginname && spieler.email === login.passwort));
+            this.globals.setLoggedIn(this.spielerservice.Spielerholen().find(spieler => spieler.email === login.loginname && spieler.email === login.passwort));
         this.router.navigate(['/ranking']);
         }
     }
