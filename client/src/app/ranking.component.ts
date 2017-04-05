@@ -4,96 +4,54 @@
 import { Component, OnInit } from '@angular/core';
 import { SpielerService } from './spieler.service';
 import { Spieler } from './spieler';
-import { isNullOrUndefined} from 'util';
 import { Globals } from './globals';
 import {Observable} from "rxjs";
 
 @Component({
-  selector: 'app-ranking',
-  template:`
-    <ul>
-        <li *ngFor="let spieler of values | async">{{spieler.vorname}}</li>
-    </ul>
-  `,
+    selector: 'app-ranking',
+    templateUrl: './ranking.component.html',
     providers: [ SpielerService ]
-    //templateUrl: './ranking.component.html'
 })
 
 export class RankingComponent implements OnInit {
     private values: Observable<Spieler[]>;
+    private rang: Observable<number>;
+    private fordern: Observable<boolean[]>;
+    private spielerArray: Spieler[] = [];
+    private KannFordern: boolean[];
+    private meinRang: number;
 
     ngOnInit() {
-        this.getSpieler(0);
-    }
-    public getSpieler(index: number): void {
-        this.values =this.spielerservice.obsSpielerholen()
+        this.values = this.spielerservice.obsSpielerholen();
+        this.rang = this.spielerservice.obsRangholen();
+        this.fordern = this.spielerservice.obskannFordernholen();
     }
 
-/*  public getSpielerderReihe(reihenNr: number): any {//Spieler[] {
-    function Summe(y: number): number {
-        if (y > 0) {
-            return (y > 1 ? y + Summe(y - 1) : 1);
-        } else {
-            return 0;
-        }
+    istRangAktuellerSpieler(rang: number, spieler: Spieler): boolean {
+        /*if (this.spielerArray[this.spielerArray.length - 1] != spieler) {
+            this.spielerArray[this.spielerArray.length] = spieler;
+            console.log(this.spielerArray[this.spielerArray.length - 1])
+        }*/
+
+        if(this.meinRang === rang)
+            return true;
+        else
+            return false;
     }
-    let m = Summe(reihenNr - 1);
-    let o = 0;
-    /!*let output: Observable<Spieler[]> = [
-        new Spieler(),
-    ];
-    for (m; m < Summe(reihenNr); m++) {
-        if (!isNullOrUndefined(this.getSpieler(m))) {
-            output[o] = this.getSpieler(m);
-            o++;
-        }
+
+    kannFordern(rang: number): boolean {
+        return this.KannFordern[rang];
     }
-    return output;*!/
-  }
 
-  public istAngemeldet(spieler: Spieler): boolean {
-    if (spieler === this.globals.getLoggedIn()) {
-      return true;
-    } else {
-      return false;
+    RangRausschreiben(erg: number) {
+        this.meinRang = erg;
     }
-  }
 
-  public getIndex(spieler: Spieler): number {
-      let n = 0;
-      for (n; n < 20; n++) {
-          /!*if (this.getSpieler(n) === spieler) {
-              return n;
-          }*!/
-      }
-      return null;
-  }
-
-  public getReihe(rang: number): number {
-    let row = 1;
-    let countGesamt = row;
-    if (rang > 1) {
-      do {
-        row++;
-        countGesamt += row;
-      } while (countGesamt < rang);
+    FordernRausschreiben(erg: boolean) {
+        this.KannFordern[this.KannFordern.length] = erg;
     }
-    return row;
-  }
 
-  kannFordern(rang: number): boolean {
-      if (this.globals.getLoggedIn().rang > rang && (this.globals.getLoggedIn().rang - rang <= this.getReihe(this.globals.getLoggedIn().rang) - 1)  ) {
-          return true;
-      } else {
-          if (this.globals.getLoggedIn().rang <= 5 && (rang < this.globals.getLoggedIn().rang) ) {
-              return true;
-          } else {
-              return false;
-          }
-      }
-  }*/
-
-  constructor (private globals: Globals,
-    private spielerservice: SpielerService) {
-  }
+    constructor (private globals: Globals,
+        private spielerservice: SpielerService) {
+    }
 }

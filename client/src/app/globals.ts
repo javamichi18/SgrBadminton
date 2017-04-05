@@ -2,12 +2,14 @@
  * Created by Max on 30.03.2017.
  */
 import { Spieler } from './spieler';
+import {Observable} from "rxjs";
+
 export class Globals {
-  private loggedIn: Spieler = new Spieler();
-  public setLoggedIn( login: Spieler ): void {
-    this.loggedIn = login;
-  }
-  public getLoggedIn(): Spieler {
-    return this.loggedIn;
-  }
+   private loggedIn: Observable<Spieler>;
+   public setLoggedIn( login: Observable<Spieler> ): void {
+       this.loggedIn = login;
+   }
+   public getLoggedIn(): Observable<Spieler> {
+       return this.loggedIn;
+   }
 }

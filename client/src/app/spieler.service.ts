@@ -25,29 +25,7 @@ export class SpielerService {
      self.window.console.log(response2);
      return null;
      }*/
-    public Spielerholen(): Spieler[] {
-        let spieler: Spieler[];
-        this.obsSpielerholen()
-        //     .subscribe(
-        //     sp => spieler = <Spieler[]> sp
-        // );
-            .subscribe(
-                function (response) {
-                    console.log("Success Response" + response);
-                    spieler = response;
-                },
-                function (error) {
-                    console.log("Error happened" + error)
-                },
-                function () {
-                    console.log("the subscription is completed")
-                    return spieler;
-                }
-            );
 
-
-        return null;
-    }
 
     public obsSpielerholen(): Observable<Spieler[]> {
         let spielerUrl = 'http://localhost:11111/sgrbadminton/rest/rangliste';
@@ -65,10 +43,52 @@ export class SpielerService {
             .catch(this.handleError);
         return test;
     }
+    public obskannFordernholen(): Observable<boolean[]> {
+        let spielerUrl = 'http://localhost:11111/sgrbadminton/rest/rangliste';
+
+        let options: RequestOptions = new RequestOptions(RequestMethod.Get);
+        if (options.headers == null) {
+            options.headers = new Headers();
+        }
+        options.headers.append('Content-Type', 'application/json');
+        options.headers.append('Content-Security-Policy', 'script-src * "unsafe-eval"');
+        //options.headers.append('Access-Control-Allow-Origin' ,'http://localhost:11111/sgrbadminton/rest/rangliste');
+
+        let test = this.http.get(spielerUrl, options)
+            .map(this.extractKannFordern)
+            .catch(this.handleError);
+        return test;
+    }
+
+    public obsRangholen(): Observable<number> {
+        let spielerUrl = 'http://localhost:11111/sgrbadminton/rest/rangliste';
+
+        let options: RequestOptions = new RequestOptions(RequestMethod.Get);
+        if (options.headers == null) {
+            options.headers = new Headers();
+        }
+        options.headers.append('Content-Type', 'application/json');
+        options.headers.append('Content-Security-Policy', 'script-src * "unsafe-eval"');
+        //options.headers.append('Access-Control-Allow-Origin' ,'http://localhost:11111/sgrbadminton/rest/rangliste');
+
+        let test = this.http.get(spielerUrl, options)
+            .map(this.extractRang)
+            .catch(this.handleError);
+        return test;
+    }
+
+    private extractKannFordern(res: Response) {
+        let body = res.json();
+        return body.kannFordern || {};
+    }
+
+    private extractRang(res: Response) {
+        let body = res.json();
+        return body.meinRang || {};
+    }
 
     private extractData(res: Response) {
         let body = res.json();
-        self.window.console.log('XX' + body.spieler);
         return body.spieler || {};
     }
 

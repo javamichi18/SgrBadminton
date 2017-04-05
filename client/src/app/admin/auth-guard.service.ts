@@ -7,12 +7,12 @@ export class AuthGuard implements CanActivate {
     private globals: Globals;
 
     canActivate() {
-        self.console.log('globals = ' + this.globals + " / " + this.globals.getLoggedIn().id);
+        self.console.log('globals = ' + this.globals + " / " + this.globals.getLoggedIn()[0].id);
 
         let user = this.globals.getLoggedIn();
-        if (user && user.admin) {
-            let isAdmin = user.admin;
-            self.console.log('AuthGuard#canActivate: ' + user.nachname + ' > ' + isAdmin);
+        if (user && user[0].admin) {
+            let isAdmin = user[0].admin;
+            self.console.log('AuthGuard#canActivate: ' + user[0].nachname + ' > ' + isAdmin);
             return isAdmin;
         }
 
