@@ -1,18 +1,25 @@
-<div id="tabelle" class="container text-center">
+<div class="container text-center">
+    <div class="container text-center">
+        <div class ="row">
+            <div class="jumbotron">
+                <h3>SG Rüsselbach Badminton</h3>
+
+                <p>Rangliste</p>
+            </div>
+        </div>
+    </div>
 <span *ngFor="let erg of rang | async">
     <span *ngIf="RangRausschreiben(erg)"></span>
 </span>
-<span *ngFor="let erg of fordern | async">
-    <span *ngIf="FordernRausschreiben(erg)"></span>
+<span *ngFor="let ford of fordern | async">
+    <span *ngIf="FordernRausschreiben(ford)"></span>
 </span>
     <div class="row">
-        <div class="jumbotron">
-            <h3>SG Rüsselbach Badminton</h3>
 
-            <p>Rangliste</p>
-        </div>
         <div *ngFor="let spieler of values | async">
             <div class="row">
+                <div class="col-md-5 center">
+                </div>
             <div id="{{spieler.rang}}" class="col-md-1 center">
                 <p>
 
@@ -24,167 +31,169 @@
 
                     <br/>
                     <span *ngIf="kannFordern(spieler.rang)">
-                <button type="button" class="btn btn-danger btn-xs">Fordern!</button></span>
+                    <button type="button" class="btn btn-danger btn-xs">Fordern!</button></span>
                 </p>
             </div>
-            <div class="col-md-1 center">
-            </div>
+                <div class="col-md-5 center">
+                </div>
             </div>
         </div>
     </div>
 </div>
 
 
-<!--
 
 
 
-<div id="tabelle" class="container text-center">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="jumbotron">
-                <h3>SG Rüsselbach Badminton</h3>
+<!--<div id="tabelle" class="container text-center">-->
+    <!--<div class="row">-->
+        <!--<div class="col-md-12">-->
+<!--<span *ngFor="let sp of values | async">-->
+    <!--<span *ngIf="AktuelleSpielerRausschreiben(sp)"></span>-->
+<!--</span>-->
+            <!--<div class="jumbotron">-->
+                <!--<h3>SG Rüsselbach Badminton</h3>-->
 
-                <p>Rangliste</p>
-            </div>
+                <!--<p>Rangliste</p>-->
+            <!--</div>-->
 
-            &lt;!&ndash; Reihe 1 &ndash;&gt;
-            <div class="row">
-                <div class="col-md-5"></div>
-                <div *ngFor="let Spieler of getSpielerderReihe(1) | async">
-                    <div spieler>
-                        <div class="col-md-1 center">
-                            <p>
-                                <span *ngIf="!istAngemeldet(Spieler)" class="label label-info ng-binding">{{Spieler.rang}}</span>
-                                <span *ngIf="istAngemeldet(Spieler)" class="label label-success ng-binding">{{Spieler.rang}}</span>
-                                <br>
-                                <span class="ng-binding">{{Spieler.vorname}} {{Spieler.nachname}}</span>
-                                <br>
-                                <span *ngIf="kannFordern(Spieler.rang)">
-                                    <button *ngIf="kannFordern(Spieler.rang)" type="button" class="btn btn-danger btn-xs">Fordern!</button>
-                                </span>
-                            </p>
-                        </div>
-                        <div class="col-md-1 center"></div>
-                    </div>
-                </div>
-                <div class="col-md-5"></div>
-            </div>
+            <!--&lt;!&ndash; Reihe 1 &ndash;&gt;-->
+            <!--<div class="row">-->
+                <!--<div class="col-md-5"></div>-->
+                <!--<div *ngFor="let Spieler of getSpielerderReihe(1)">-->
+                    <!--<div spieler>-->
+                        <!--<div class="col-md-1 center">-->
+                            <!--<p>-->
+                                <!--<span *ngIf="!istRangAktuellerSpieler(Spieler)" class="label label-info ng-binding">{{Spieler.rang}}</span>-->
+                                <!--<span *ngIf="istRangAktuellerSpieler(Spieler)" class="label label-success ng-binding">{{Spieler.rang}}</span>-->
+                                <!--<br>-->
+                                <!--<span class="ng-binding">{{Spieler.vorname}} {{Spieler.nachname}}</span>-->
+                                <!--<br>-->
+                                <!--<span *ngIf="kannFordern(Spieler.rang)">-->
+                                    <!--<button *ngIf="kannFordern(Spieler.rang)" type="button" class="btn btn-danger btn-xs">Fordern!</button>-->
+                                <!--</span>-->
+                            <!--</p>-->
+                        <!--</div>-->
+                        <!--<div class="col-md-1 center"></div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="col-md-5"></div>-->
+            <!--</div>-->
 
-                    &lt;!&ndash; Reihe 2 &ndash;&gt;
-            <div class="row">
-                <div class="col-md-4"></div>
-                <div *ngFor="let Spieler of getSpielerderReihe(2) | async">
-                    <div spieler="">
-                        <div class="col-md-1 center">
-                            <p>
-                                <span *ngIf="!istAngemeldet(Spieler)" class="label label-info ng-binding">{{Spieler.rang}}</span>
-                                <span *ngIf="istAngemeldet(Spieler)" class="label label-success ng-binding">{{Spieler.rang}}</span>
-                                <br>
-                                <span class="ng-binding">{{Spieler.vorname}} {{Spieler.nachname}}</span>
-                                <br>
-                                <span *ngIf="kannFordern(Spieler.rang)">
-                                    <button *ngIf="kannFordern(Spieler.rang)" type="button" class="btn btn-danger btn-xs">Fordern!</button>
-                                </span>
-                            </p>
-                        </div>
-                        <div class="col-md-1 center"></div>
-                    </div>
-                </div>
-                <div class="col-md-4"></div>
-            </div>
+                    <!--&lt;!&ndash; Reihe 2 &ndash;&gt;-->
+            <!--<div class="row">-->
+                <!--<div class="col-md-4"></div>-->
+                <!--<div *ngFor="let Spieler of getSpielerderReihe(2)">-->
+                    <!--<div spieler="">-->
+                        <!--<div class="col-md-1 center">-->
+                            <!--<p>-->
+                                <!--<span *ngIf="!istRangAktuellerSpieler(Spieler)" class="label label-info ng-binding">{{Spieler.rang}}</span>-->
+                                <!--<span *ngIf="istRangAktuellerSpieler(Spieler)" class="label label-success ng-binding">{{Spieler.rang}}</span>-->
+                                <!--<br>-->
+                                <!--<span class="ng-binding">{{Spieler.vorname}} {{Spieler.nachname}}</span>-->
+                                <!--<br>-->
+                                <!--<span *ngIf="kannFordern(Spieler.rang)">-->
+                                    <!--<button *ngIf="kannFordern(Spieler.rang)" type="button" class="btn btn-danger btn-xs">Fordern!</button>-->
+                                <!--</span>-->
+                            <!--</p>-->
+                        <!--</div>-->
+                        <!--<div class="col-md-1 center"></div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="col-md-4"></div>-->
+            <!--</div>-->
 
-            &lt;!&ndash; Reihe 3 &ndash;&gt;
-            <div class="row">
-                <div class="col-md-3"></div>
-                <div *ngFor="let Spieler of getSpielerderReihe(3) | async" class="ng-scope">
-                    <div spieler="">
-                        <div class="col-md-1 center">
-                            <p>
-                                <span *ngIf="!istAngemeldet(Spieler)" class="label label-info ng-binding ng-scope">{{Spieler.rang}}</span>
-                                <span *ngIf="istAngemeldet(Spieler)" class="label label-success ng-binding">{{Spieler.rang}}</span>
-                                <br>
-                                <span class="ng-binding">{{Spieler.vorname}} {{Spieler.nachname}}</span>
-                                <br>
-                                <span *ngIf="kannFordern(Spieler.rang)" class="ng-scope">
-                                    <button *ngIf="kannFordern(Spieler.rang)" type="button" class="btn btn-danger btn-xs">Fordern!</button>
-                                </span>
-                            </p>
-                        </div>
-                        <div class="col-md-1 center"></div>
-                    </div>
-                </div>
-                <div class="col-md-3"></div>
-            </div>
+            <!--&lt;!&ndash; Reihe 3 &ndash;&gt;-->
+            <!--<div class="row">-->
+                <!--<div class="col-md-3"></div>-->
+                <!--<div *ngFor="let Spieler of getSpielerderReihe(3)" class="ng-scope">-->
+                    <!--<div spieler="">-->
+                        <!--<div class="col-md-1 center">-->
+                            <!--<p>-->
+                                <!--<span *ngIf="!istRangAktuellerSpieler(Spieler)" class="label label-info ng-binding ng-scope">{{Spieler.rang}}</span>-->
+                                <!--<span *ngIf="istRangAktuellerSpieler(Spieler)" class="label label-success ng-binding">{{Spieler.rang}}</span>-->
+                                <!--<br>-->
+                                <!--<span class="ng-binding">{{Spieler.vorname}} {{Spieler.nachname}}</span>-->
+                                <!--<br>-->
+                                <!--<span *ngIf="kannFordern(Spieler.rang)" class="ng-scope">-->
+                                    <!--<button *ngIf="kannFordern(Spieler.rang)" type="button" class="btn btn-danger btn-xs">Fordern!</button>-->
+                                <!--</span>-->
+                            <!--</p>-->
+                        <!--</div>-->
+                        <!--<div class="col-md-1 center"></div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="col-md-3"></div>-->
+            <!--</div>-->
 
-            &lt;!&ndash; Reihe 4 &ndash;&gt;
-            <div class="row">
-                <div class="col-md-2"></div>
-                <div *ngFor="let Spieler of getSpielerderReihe(4) | async" class="ng-scope">
-                    <div spieler="">
-                        <div class="col-md-1 center">
-                            <p>
-                                <span *ngIf="!istAngemeldet(Spieler)" class="label label-info ng-binding ng-scope">{{Spieler.rang}}</span>
-                                <span *ngIf="istAngemeldet(Spieler)" class="label label-success ng-binding">{{Spieler.rang}}</span>
-                                <br>
-                                <span class="ng-binding">{{Spieler.vorname}} {{Spieler.nachname}}</span>
-                                <br>
-                                <span *ngIf="kannFordern(Spieler.rang)" class="ng-scope">
-                                    <button *ngIf="kannFordern(Spieler.rang)" type="button" class="btn btn-danger btn-xs">Fordern!</button>
-                                </span>
-                            </p>
-                        </div>
-                        <div class="col-md-1 center"></div>
-                    </div>
-                </div>
-                <div class="col-md-2"></div>
-            </div>
+            <!--&lt;!&ndash; Reihe 4 &ndash;&gt;-->
+            <!--<div class="row">-->
+                <!--<div class="col-md-2"></div>-->
+                <!--<div *ngFor="let Spieler of getSpielerderReihe(4)" class="ng-scope">-->
+                    <!--<div spieler="">-->
+                        <!--<div class="col-md-1 center">-->
+                            <!--<p>-->
+                                <!--<span *ngIf="!istRangAktuellerSpieler(Spieler)" class="label label-info ng-binding ng-scope">{{Spieler.rang}}</span>-->
+                                <!--<span *ngIf="istRangAktuellerSpieler(Spieler)" class="label label-success ng-binding">{{Spieler.rang}}</span>-->
+                                <!--<br>-->
+                                <!--<span class="ng-binding">{{Spieler.vorname}} {{Spieler.nachname}}</span>-->
+                                <!--<br>-->
+                                <!--<span *ngIf="kannFordern(Spieler.rang)" class="ng-scope">-->
+                                    <!--<button *ngIf="kannFordern(Spieler.rang)" type="button" class="btn btn-danger btn-xs">Fordern!</button>-->
+                                <!--</span>-->
+                            <!--</p>-->
+                        <!--</div>-->
+                        <!--<div class="col-md-1 center"></div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="col-md-2"></div>-->
+            <!--</div>-->
 
-            &lt;!&ndash; Reihe 5 &ndash;&gt;
-            <div class="row">
-                <div class="col-md-1"></div>
-                <div *ngFor="let Spieler of getSpielerderReihe(5) | async">
-                    <div spieler="">
-                        <div class="col-md-1 center">
-                            <p>
-                                <span *ngIf="!istAngemeldet(Spieler)" class="label label-info">{{Spieler.rang}}</span>
-                                <span *ngIf="istAngemeldet(Spieler)" class="label label-success">{{Spieler.rang}}</span>
-                                <br>
-                                <span>{{Spieler.vorname}} {{Spieler.nachname}}</span>
-                                <br>
-                                <span *ngIf="kannFordern(Spieler.rang)">
-                                    <button *ngIf="kannFordern(Spieler.rang)" type="button" class="btn btn-danger btn-xs">Fordern!</button>
-                                </span>
-                            </p>
-                        </div>
-                        <div class="col-md-1 center"></div>
-                    </div>
-                </div>
-                <div class="col-md-1"></div>
-            </div>
+            <!--&lt;!&ndash; Reihe 5 &ndash;&gt;-->
+            <!--<div class="row">-->
+                <!--<div class="col-md-1"></div>-->
+                <!--<div *ngFor="let Spieler of getSpielerderReihe(5)">-->
+                    <!--<div spieler="">-->
+                        <!--<div class="col-md-1 center">-->
+                            <!--<p>-->
+                                <!--<span *ngIf="!istRangAktuellerSpieler(Spieler)" class="label label-info">{{Spieler.rang}}</span>-->
+                                <!--<span *ngIf="istRangAktuellerSpieler(Spieler)" class="label label-success">{{Spieler.rang}}</span>-->
+                                <!--<br>-->
+                                <!--<span>{{Spieler.vorname}} {{Spieler.nachname}}</span>-->
+                                <!--<br>-->
+                                <!--<span *ngIf="kannFordern(Spieler.rang)">-->
+                                    <!--<button *ngIf="kannFordern(Spieler.rang)" type="button" class="btn btn-danger btn-xs">Fordern!</button>-->
+                                <!--</span>-->
+                            <!--</p>-->
+                        <!--</div>-->
+                        <!--<div class="col-md-1 center"></div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="col-md-1"></div>-->
+            <!--</div>-->
 
-            &lt;!&ndash; Reihe 6 &ndash;&gt;
-            <div class="row">
-                <div ></div>
-                <div *ngFor="let Spieler of getSpielerderReihe(6) | async">
-                    <div spieler="">
-                        <div class="col-md-1 center">
-                            <p>
-                                <span *ngIf="!istAngemeldet(Spieler)" class="label label-info">{{Spieler.rang}}</span>
-                                <span *ngIf="istAngemeldet(Spieler)" class="label label-success">{{Spieler.rang}}</span>
-                                <br>
-                                <span>{{Spieler.vorname}} {{Spieler.nachname}}</span>
-                                <br>
-                                <span *ngIf="kannFordern(Spieler.rang)">
-                                    <button *ngIf="kannFordern(Spieler.rang)" type="button" class="btn btn-danger btn-xs">Fordern!</button>
-                                </span>
-                            </p>
-                        </div>
-                        <div class="col-md-1 center"></div>
-                    </div>
-                </div>
-            </div>
+            <!--&lt;!&ndash; Reihe 6 &ndash;&gt;-->
+            <!--<div class="row">-->
+                <!--<div ></div>-->
+                <!--<div *ngFor="let Spieler of getSpielerderReihe(6)">-->
+                    <!--<div spieler="">-->
+                        <!--<div class="col-md-1 center">-->
+                            <!--<p>-->
+                                <!--<span *ngIf="!istRangAktuellerSpieler(Spieler)" class="label label-info">{{Spieler.rang}}</span>-->
+                                <!--<span *ngIf="istRangAktuellerSpieler(Spieler)" class="label label-success">{{Spieler.rang}}</span>-->
+                                <!--<br>-->
+                                <!--<span>{{Spieler.vorname}} {{Spieler.nachname}}</span>-->
+                                <!--<br>-->
+                                <!--<span *ngIf="kannFordern(Spieler.rang)">-->
+                                    <!--<button *ngIf="kannFordern(Spieler.rang)" type="button" class="btn btn-danger btn-xs">Fordern!</button>-->
+                                <!--</span>-->
+                            <!--</p>-->
+                        <!--</div>-->
+                        <!--<div class="col-md-1 center"></div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
 
-        </div>
-    </div>
-</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->

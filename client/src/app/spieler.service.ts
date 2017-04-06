@@ -43,7 +43,7 @@ export class SpielerService {
             .catch(this.handleError);
         return test;
     }
-    public obskannFordernholen(): Observable<boolean[]> {
+    public obskannFordernholen(): Observable<number[]> {
         let spielerUrl = 'http://localhost:11111/sgrbadminton/rest/rangliste';
 
         let options: RequestOptions = new RequestOptions(RequestMethod.Get);
@@ -60,7 +60,7 @@ export class SpielerService {
         return test;
     }
 
-    public obsRangholen(): Observable<number> {
+    public obsRangholen(): Observable<number[]> {
         let spielerUrl = 'http://localhost:11111/sgrbadminton/rest/rangliste';
 
         let options: RequestOptions = new RequestOptions(RequestMethod.Get);
@@ -70,10 +70,10 @@ export class SpielerService {
         options.headers.append('Content-Type', 'application/json');
         options.headers.append('Content-Security-Policy', 'script-src * "unsafe-eval"');
         //options.headers.append('Access-Control-Allow-Origin' ,'http://localhost:11111/sgrbadminton/rest/rangliste');
-
         let test = this.http.get(spielerUrl, options)
             .map(this.extractRang)
             .catch(this.handleError);
+
         return test;
     }
 
@@ -84,7 +84,7 @@ export class SpielerService {
 
     private extractRang(res: Response) {
         let body = res.json();
-        return body.meinRang || {};
+        return body.meinRangAsList || {};
     }
 
     private extractData(res: Response) {

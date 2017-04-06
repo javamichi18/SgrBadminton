@@ -6,7 +6,6 @@ import {RouterModule, Routes} from "@angular/router";
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { LoginComponent } from './login.component';
 import { RankingComponent } from './ranking.component';
 import { CheckLoginService } from './check-login.service';
 import { Globals } from './globals';
@@ -14,14 +13,16 @@ import { AdminComponent } from './admin/admin.component';
 import { SpielerDetailComponent } from './admin/spieler-detail/spieler-detail.component';
 import {AuthGuard} from "./admin/auth-guard.service";
 import {SpielerService} from "./spieler.service";
+import {ForderungenService} from "./forderungen.service";
+import {ForderungenComponent} from "./forderungen.component";
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     RankingComponent,
+    ForderungenComponent,
     AdminComponent,
     SpielerDetailComponent
   ],
@@ -36,7 +37,8 @@ import {SpielerService} from "./spieler.service";
       CheckLoginService,
       Globals,
       AuthGuard,
-      SpielerService
+      SpielerService,
+      ForderungenService
   ],
   bootstrap: [
       AppComponent

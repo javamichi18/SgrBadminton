@@ -34,7 +34,7 @@ public class BadmintonController {
     @ResponseBody
     public Rangliste getRangeliste () {
 
-        return service.getRangliste(getAngemeldeterBenutzer());
+        return service.getRangliste("johannes@aol.com");
     }
 
 

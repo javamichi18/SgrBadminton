@@ -51,8 +51,20 @@ public class Rangliste {
     }
 
 
+    public List<Integer> getMeinRangAsList() {
+        List<Integer> ListRang = new ArrayList<>();
+        ListRang.add(meinRang);
+        return ListRang;
+    }
+
+
     public void setMeinRang (Integer meinRang) {
         this.meinRang = meinRang;
+    }
+
+
+    public void setMeinRangAsList(List<Integer> foo) {
+
     }
 
 

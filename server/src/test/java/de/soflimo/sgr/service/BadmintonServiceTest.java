@@ -49,8 +49,8 @@ public class BadmintonServiceTest {
 
         Spieler spieler3 = rangliste.getSpieler().get(2);
         Rangliste ranglisteFuer3 = badmintonService.getRangliste(spieler3.getEmail());
-        assertEquals(1, ranglisteFuer3.getKannFordern().size());
-        assertEquals(new Integer(2), ranglisteFuer3.getKannFordern().iterator().next());
+        assertEquals(2, ranglisteFuer3.getKannFordern().size());
+        //assertEquals(new Integer(2), ranglisteFuer3.getKannFordern().iterator().next());
     }
 
 
